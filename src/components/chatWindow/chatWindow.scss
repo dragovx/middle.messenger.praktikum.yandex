@@ -1,0 +1,70 @@
+@use '/src/styles/variables.scss' as *;
+@use '/src/styles/mixins.scss' as *;
+
+.chat-window{
+  width: 100%;
+  height: 100vh;
+}
+
+.chat-window__header{
+  width: 100%;
+  height: 60px;
+  @include flex-row-between
+}
+
+.chat-window__profile-info{
+  @include flex-row-between
+}
+
+.chat-window__avatar{
+  margin: 12px;
+}
+
+.chat-window__account-name{
+  font-weight: $font-weight-semibold;
+  font-size: 14px;
+}
+
+.chat-window__menu{
+  margin: 0 20px 0;
+  width: 12px;
+  height: 20px;
+  @include flex-row-center;
+  cursor: pointer;
+}
+.chat-window__chat {
+  height: calc(100% - 132px)
+}
+.chat-window__footer{
+  @include flex-row-between;
+  height: 60px;
+}
+.chat-window__attach{
+  margin: 0 15px 0;
+}
+.chat-window__message{
+ flex:1
+}
+.chat-window__send-message{
+  width: 100%;
+  height: 32px;
+  border: 0;
+  background-color: $color-search-background;
+  color: $color-text;
+  padding-left: 15px;
+  border-radius: 16px;
+
+  &::placeholder {
+    color: $color-grey;
+  }
+
+  &:focus-visible{
+    outline: none;
+  }
+}
+ 
+.chat-window__send{
+  width: 28px;
+  margin: 0 15px 0;
+  transform: rotate(180deg);
+}

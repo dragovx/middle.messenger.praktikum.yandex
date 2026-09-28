@@ -1,0 +1,43 @@
+<main class="profile">
+  <aside class="profile__side">
+    <a href="#messenger" class="profile__side-button" aria-label="Назад к чатам">
+      <img class="profile__side-ico" src="/src/assets/img/back.svg">
+    </a>
+  </aside>
+
+  <section class="profile__content">
+    <div class="profile__header">
+      <div class="profile__avatar-wrapper">
+        <img src="/src/assets/img/profileAvatar.png" alt="avatar" class="profile__avatar"/>
+        <span class="profile__avatar-overlay">
+          <div>Поменять</div>
+          <div>аватар</div>
+        </span>
+      </div>
+      {{> heading text = "Иван" modifier = "profile" }}
+    </div>
+
+    <div class="profile__info">
+      {{> profileEditRow label="Почта" name="email" type="email" value="pochta@yandex.ru"}}
+      {{> profileEditRow label="Логин" name="login" type="text" value="ivanivanov"}}
+      {{> profileEditRow label="Имя" name="first_name" type="text" value="Иван"}}
+      {{> profileEditRow label="Фамилия" name="second_name" type="text" value="Иванов"}}
+      {{> profileEditRow label="Имя в чате" name="display_name" type="text" value="Иван"}}
+      {{> profileEditRow label="Телефон" name="phone" type="tel" value="+7 (909) 967 30 30"}}
+    </div>
+
+    <div class="profile__change-password">
+      {{> profileEditRow label = "Старый пароль" type = "password" name = "old_password" value = "•••••••••"}}
+      {{> profileEditRow label = "Новый пароль" type = "password" name = "new_password" value = "•••••••••"}}
+      {{> profileEditRow label = "Повторите новый пароль" type = "password" name = "repeat_password" value = "•••••••••"}}
+    </div>
+
+    <nav class="profile__actions">
+      {{> link modifier="action" href="#profile" text="Изменить данные"}}
+      {{> separator}}
+      {{> link modifier="action" href="#profile" text="Изменить пароль"}}
+      {{> separator}}
+      {{> link modifier="logout" href="#" text="Выйти"}}
+    </nav>
+  </section>
+</main>

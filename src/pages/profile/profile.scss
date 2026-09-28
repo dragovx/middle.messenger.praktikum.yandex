@@ -1,0 +1,71 @@
+@use '/src/styles/variables.scss' as *;
+@use '/src/styles/mixins.scss' as *;
+
+$profile-wifth: 510px;
+
+.profile {
+  display: flex;
+  height: 100vh;
+}
+
+.profile__side {
+  @include flex-column-center;
+  height: 100%;
+  width: 64px;
+  background-color: $color-background;
+  border-right: solid 1px $color-line;
+}
+
+.profile__side-button{
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.profile__content{
+  width: $profile-wifth;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__avatar-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin-top: 60px;
+  margin-bottom: 21px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: $color-search-background;
+
+  &:hover .profile__avatar-overlay {
+    opacity: 1;
+  }
+}
+
+.profile__avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile__avatar-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  inset: 0; 
+  @include flex-column-center;
+  font-size: 14px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+
+}
+.profile__actions{
+  padding-top: 80px;
+  justify-content: left;
+  width: $profile-wifth;
+}

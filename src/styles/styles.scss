@@ -1,0 +1,17 @@
+@use './main';
+@use './variables';
+@use './mixins';
+@use './auth';
+@use './error';
+
+@use '../pages/chats/chats.scss';
+@use '../pages/profile/profile.scss';
+
+@use '../components/separator/separator';
+@use '../components/button/button';
+@use '../components/input/input';
+@use '../components/link/link';
+@use '../components/heading/heading';
+@use '../components/chatItem/chatItem';
+@use '../components/profileEditRow/profileEditRow';
+@use '../components/chatWindow/chatWindow.scss';

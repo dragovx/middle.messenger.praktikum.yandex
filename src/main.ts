@@ -1,60 +1,75 @@
-import './style.css'
-import heroImg from './assets/hero.png'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.ts'
+import Handlebars from "handlebars";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+import buttonTemplate from './components/button/button.hbs?raw';
+import inputTemplate from './components/input/input.hbs?raw';
+import linkTemplate from './components/link/link.hbs?raw';
+import headingTemplate from './components/heading/heading.hbs?raw';
+import chatItemTemplate from './components/chatItem/chatItem.hbs?raw'
+import chatWindowTemplate from './components/chatWindow/chatWindow.hbs?raw'
+import chatWindow__messagesTemplate from './components/chatWindow/__messages/chatWindow__messages.hbs?raw'
+import profileEditRowTemplate from './components/profileEditRow/profileEditRow.hbs?raw'
+import separatorTemplate from './components/separator/separator.hbs?raw' 
 
-<div class="ticks"></div>
+import loginPage from './pages/login/login.hbs?raw';
+import registrationPage from './pages/registration/registration.hbs?raw';
+import chatPage from './pages/chats/chats.hbs?raw'
+import error404Page from './pages/error404/error404.hbs?raw'
+import error500Page from './pages/error500/error500.hbs?raw'
+import profilePage from './pages/profile/profile.hbs?raw'
 
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://www.typescriptlang.org" target="_blank">
-          <img class="button-icon" src="${typescriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="/icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="/icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
+import { chats } from './mocks/chats.js';
+import dateConvert from "./helpers/dateConvert.js";
+import sortChatByDate from "./helpers/sortChatByDate.js";
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+import './styles/styles.scss';
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+Handlebars.registerPartial("button", buttonTemplate);
+Handlebars.registerPartial("input", inputTemplate);
+Handlebars.registerPartial("link", linkTemplate);
+Handlebars.registerPartial("heading", headingTemplate);
+Handlebars.registerPartial("chatItem", chatItemTemplate);
+Handlebars.registerPartial("chatWindow", chatWindowTemplate);
+Handlebars.registerPartial("profileEditRow", profileEditRowTemplate);
+Handlebars.registerPartial("separator", separatorTemplate);
+Handlebars.registerPartial("chatWindow__messages", chatWindow__messagesTemplate);
+
+Handlebars.registerHelper("dateConvert", dateConvert);
+Handlebars.registerHelper("sortChatByDate", sortChatByDate);
+Handlebars.registerHelper('eq', (a, b) => a === b);
+Handlebars.registerHelper('or', function (...args) {
+  args.pop();
+  return args.some(Boolean);
+});
+
+
+function render() {
+  const route = window.location.hash;
+  const app = document.querySelector('#app');
+
+  console.log(route)
+
+  switch (route) {
+    case '':
+      app!.innerHTML = Handlebars.compile(loginPage)({});
+      break;
+    case '#register':
+      app!.innerHTML = Handlebars.compile(registrationPage)({});
+      break;
+    case '#messenger':
+      app!.innerHTML = Handlebars.compile(chatPage)({chats});
+      break;
+    case '#profile':
+      app!.innerHTML = Handlebars.compile(profilePage)({});
+      break;
+    case '#error500':
+        app!.innerHTML = Handlebars.compile(error500Page)({});
+      break;
+    case '#error404':
+      app!.innerHTML = Handlebars.compile(error404Page)({});
+      break;
+      
+  }
+}
+
+window.addEventListener('hashchange', render);
+render();

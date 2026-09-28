@@ -1,0 +1,94 @@
+@use '/src/styles/variables.scss' as *;
+@use '/src/styles/mixins.scss' as *;
+
+.chats {
+  display: flex;
+}
+
+.chats__wrapper {
+  width: 310px;
+  background: $color-background;
+  padding: 20px 0 0;
+  border-right: 1px solid $color-line;
+  box-sizing: border-box;
+}
+
+.chats__content {
+  height: 100vh;
+  flex: 1;
+  @include flex-row-center;
+}
+
+.chat-list {
+  height: calc(100vh - 105px);
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-list::-webkit-scrollbar {
+  display: none
+}
+
+.chats__sidebar {
+  margin-top: 14px;
+}
+
+.chats__profile-wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 10px 25px;
+  box-sizing: border-box;
+}
+
+.search {
+  position: relative;
+  padding: 0 10px;
+}
+
+.search__input {
+  font-size: 13px;
+  line-height: 12px;
+  width: 290px;
+  border-radius: 5px;
+  border: none;
+  background: $color-search-background;
+  color: $color-text;
+  padding: 10px;
+}
+
+.search__input::placeholder {
+  padding-left: 116px;
+  color: $color-grey;
+}
+
+.search__input:focus-visible {
+  outline: none;
+}
+
+.search__ico {
+  position: absolute;
+  top: 7px;
+  left: 112px;
+}
+
+.search:has(.search__input:not(:placeholder-shown)) .search__ico{
+  left: 20px;
+}
+
+.search:has(.search__input:not(:placeholder-shown)) .search__input{
+  padding-left: 34px;
+}
+
+.search__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.chats__empty {
+  font-size: 12px;
+  line-height: 12px;
+  color: #999999;
+}

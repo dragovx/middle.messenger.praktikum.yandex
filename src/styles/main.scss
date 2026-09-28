@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+html, body {
+  font-family: $font-base;
+  color: $color-text;
+  margin: 0;
+}
+
+input,
+button {
+  font-family: inherit;
+}
