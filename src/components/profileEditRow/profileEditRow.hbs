@@ -1,0 +1,9 @@
+<div class="profile-field">
+  <label class="profile-field__label" for="{{name}}">
+    {{label}}
+  </label>
+  <input class="profile-field__input" id="{{name}}" name="{{name}}" type="{{type}}" value="{{value}}" {{#if readonly}}readonly{{/if}}/>
+</div>
+{{#unless (or (eq name "phone") (eq name "repeat_password"))}}
+  {{> separator}}
+{{/unless}}
