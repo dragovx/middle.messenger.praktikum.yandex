@@ -1,26 +1,25 @@
-@use '/src/styles/variables.scss' as *;
-@use '/src/styles/mixins.scss' as *;
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/mixins.scss" as *;
 
 .profile-field {
   width: 510px;
   margin-bottom: 10px;
-  margin-top:  10px;
+  margin-top: 10px;
   @include flex-row-between;
 }
 
-.profile-field__label{
+.profile-field__label {
   font-size: 13px;
   font-weight: $font-weight-semibold;
-  color: $color-text
+  color: $color-text;
 }
-.profile-field__input{
+.profile-field__input {
   border: none;
   text-align: right;
   color: $color-grey;
   cursor: default;
-  
 
-  &:focus{
+  &:focus {
     outline: 0;
   }
 }

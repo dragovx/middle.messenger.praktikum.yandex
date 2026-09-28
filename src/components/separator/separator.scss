@@ -1,18 +1,18 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins.scss' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins.scss" as *;
 
-.separator{ 
+.separator {
   border: 1px solid $color-line;
   margin: 2px;
-  
+
   &_in-width {
   }
 
-  &_indent{
+  &_indent {
     clip-path: inset(0 5% 0 5%);
   }
 
-  &_indent2{
+  &_indent2 {
     clip-path: inset(0 2% 0 2%);
   }
 }

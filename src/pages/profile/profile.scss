@@ -1,5 +1,5 @@
-@use '/src/styles/variables.scss' as *;
-@use '/src/styles/mixins.scss' as *;
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/mixins.scss" as *;
 
 $profile-wifth: 510px;
 
@@ -16,13 +16,13 @@ $profile-wifth: 510px;
   border-right: solid 1px $color-line;
 }
 
-.profile__side-button{
+.profile__side-button {
   width: 28px;
   height: 28px;
   border-radius: 14px;
 }
 
-.profile__content{
+.profile__content {
   width: $profile-wifth;
   flex: 1;
   display: flex;
@@ -56,15 +56,14 @@ $profile-wifth: 510px;
 .profile__avatar-overlay {
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
-  inset: 0; 
+  inset: 0;
   @include flex-column-center;
   font-size: 14px;
   color: white;
   opacity: 0;
   pointer-events: none;
-
 }
-.profile__actions{
+.profile__actions {
   padding-top: 80px;
   justify-content: left;
   width: $profile-wifth;

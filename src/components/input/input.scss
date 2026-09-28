@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .input {
   display: flex;
@@ -16,7 +16,7 @@
 
 .input__field {
   border: none;
-  border-bottom: solid $color-blue 1px ;
+  border-bottom: solid $color-blue 1px;
   padding: 5px 0 6px;
   font-size: 13px;
   line-height: 13px;

@@ -1,6 +1,7 @@
-@use './variables' as *;
+@use "./variables" as *;
 
-html, body {
+html,
+body {
   font-family: $font-base;
   color: $color-text;
   margin: 0;

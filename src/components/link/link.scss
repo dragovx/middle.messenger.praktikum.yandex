@@ -1,13 +1,14 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .link {
   width: 100%;
   display: flex;
 
-  &-profile{
+  &-profile {
     justify-content: right;
   }
-  &-login, &-registration{
+  &-login,
+  &-registration {
     justify-content: center;
   }
 }
@@ -18,39 +19,37 @@
   text-align: center;
   text-decoration: none;
 
-  &-login{
+  &-login {
     font-size: 12px;
     margin-top: 14px;
     color: $color-blue;
   }
 
-  &-registration{
+  &-registration {
     font-size: 12px;
     margin-top: 14px;
     color: $color-blue;
   }
 
-  &-profile{
+  &-profile {
     font-size: 14px;
     color: $color-grey;
   }
 
-  &-error{
+  &-error {
     font-size: 12px;
   }
 
-  &-action{
+  &-action {
     font-size: 13px;
     color: $color-blue;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
-  &-logout{
+  &-logout {
     font-size: 13px;
     margin-top: 10px;
     color: red;
   }
 }
-
-

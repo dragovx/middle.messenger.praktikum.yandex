@@ -1,6 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins.scss' as *;
-
+@use "../../styles/variables" as *;
+@use "../../styles/mixins.scss" as *;
 
 .chat-item {
   display: flex;
@@ -11,7 +10,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: #E4EDFD;
+    background-color: #e4edfd;
   }
 }
 
@@ -20,7 +19,7 @@
   height: 47px;
 }
 
-.chat-item__text-wrapper{
+.chat-item__text-wrapper {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -71,7 +70,7 @@
   text-align: center;
   padding: 4px;
   border-radius: 50%;
-  background: $color-blue; 
+  background: $color-blue;
   color: white;
   width: 20px;
   height: 20px;

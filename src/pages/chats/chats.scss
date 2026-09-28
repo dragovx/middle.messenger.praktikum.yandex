@@ -1,5 +1,5 @@
-@use '/src/styles/variables.scss' as *;
-@use '/src/styles/mixins.scss' as *;
+@use "/src/styles/variables.scss" as *;
+@use "/src/styles/mixins.scss" as *;
 
 .chats {
   display: flex;
@@ -27,7 +27,7 @@
 }
 
 .chat-list::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 
 .chats__sidebar {
@@ -75,11 +75,11 @@
   left: 112px;
 }
 
-.search:has(.search__input:not(:placeholder-shown)) .search__ico{
+.search:has(.search__input:not(:placeholder-shown)) .search__ico {
   left: 20px;
 }
 
-.search:has(.search__input:not(:placeholder-shown)) .search__input{
+.search:has(.search__input:not(:placeholder-shown)) .search__input {
   padding-left: 34px;
 }
 
