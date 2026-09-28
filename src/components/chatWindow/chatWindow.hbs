@@ -1,4 +1,4 @@
-<main class="chat-window">
+<div class="chat-window">
   <header class="chat-window__header">
     <div class="chat-window__profile-info">
       <img src="/img/avatar.png" alt="avatar" class="chat-window__avatar"/>
@@ -9,17 +9,17 @@
     </div>
   </header>
   {{> separator modifier="indent2"}}
-  <body>
-    <div class="chat-window__chat">
-      {{chatWindow__messages}}
-    </div>
-  </body>
+  <div class="chat-window__chat">
+    {{!-- Тело переписки --}}
+  </div>
   {{> separator modifier="indent2"}}
   <footer class="chat-window__footer">
     <img src="/img/attach.svg" alt="menu" class="chat-window__attach"/>
-      <form class="chat-window__message">
-      <input type="search" name="search" class="chat-window__send-message" placeholder="Сообщение">
+    <form id="submitMessage" class="chat-window__message">
+      <input type="text" name="message" class="chat-window__send-message" placeholder="Сообщение">
     </form>
-    <img src="/img/back.svg" alt="menu" class="chat-window__send"/>
+    <button type="submit" form="submitMessage" class="chat-window__send-button">
+      <img src="/img/back.svg" alt="submit" class="chat-window__send"/>
+    </button>
   </footer>
-</main>
+</div>

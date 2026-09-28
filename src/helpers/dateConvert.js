@@ -13,7 +13,6 @@ export default (d) => {
     return dateMessage.getHours() + ":" + dateMessage.getMinutes();
 
   const weekDays = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-  // console.log(days[date.getDay()]); // "Среда"
   if (diffMin >= 1440 && diffMin < 10080) return weekDays[dateMessage.getDay()];
 
   const m = [
@@ -32,7 +31,7 @@ export default (d) => {
   ];
   if (diffMin >= 10080)
     return (
-      dateMessage.getDay() +
+      dateMessage.getDate() +
       " " +
       m[dateMessage.getMonth()] +
       " " +

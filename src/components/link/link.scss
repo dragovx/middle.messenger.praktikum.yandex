@@ -8,7 +8,8 @@
     justify-content: right;
   }
   &-login,
-  &-registration {
+  &-registration,
+  &-error {
     justify-content: center;
   }
 }
@@ -38,6 +39,7 @@
 
   &-error {
     font-size: 12px;
+    text-align: center;
   }
 
   &-action {

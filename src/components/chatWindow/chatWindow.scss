@@ -46,7 +46,7 @@
   flex: 1;
 }
 .chat-window__send-message {
-  width: 100%;
+  width: calc(100% - 15px);
   height: 32px;
   border: 0;
   background-color: $color-search-background;
@@ -63,8 +63,20 @@
   }
 }
 
-.chat-window__send {
+.chat-window__send-button {
+  all: unset; /* сбрасывает все стили браузера */
+  cursor: pointer; /* курсор-рука при наведении */
+  display: inline-flex;
   width: 28px;
   margin: 0 15px 0;
+  border-radius: 50%;
+  transition: linear opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.chat-window__send {
+  width: 28px;
   transform: rotate(180deg);
 }
