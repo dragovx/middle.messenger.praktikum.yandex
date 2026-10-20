@@ -1,0 +1,25 @@
+<div class="chat-window">
+  <header class="chat-window__header">
+    <div class="chat-window__profile-info">
+      <img src="/img/avatar.png" alt="avatar" class="chat-window__avatar"/>
+      <div class="chat-window__account-name">Вадим</div>
+    </div>
+    <div class="chat-window__menu">
+      <img src="/img/threedot.svg" alt="menu" class="chat-window__threedot"/>
+    </div>
+  </header>
+  {{> separator modifier="indent2"}}
+  <div class="chat-window__chat">
+    {{!-- Тело переписки --}}
+  </div>
+  {{> separator modifier="indent2"}}
+  <footer class="chat-window__footer">
+    <img src="/img/attach.svg" alt="attach" class="chat-window__attach"/>
+    <form id="submitMessage" class="chat-window__message">
+      <input type="text" name="message" class="chat-window__send-message" placeholder="Сообщение">
+    </form>
+    <button type="submit" form="submitMessage" class="chat-window__send-button">
+      <img src="/img/back.svg" alt="submit" class="chat-window__send"/>
+    </button>
+  </footer>
+</div>

@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+.button {
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  background: $color-blue;
+  color: white;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: $font-weight-medium;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.button_login {
+  margin-top: 144px;
+}
+
+.button_registration {
+  margin-top: 62px;
+}
+
+.button_changeProfile,
+.button_changePassword {
+  width: 280px;
+}
+
+.button_changeProfile {
+  margin-top: 50px;
+}
+.button_changePassword {
+  margin-top: 166px;
+}

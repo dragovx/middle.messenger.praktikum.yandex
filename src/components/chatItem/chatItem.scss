@@ -1,0 +1,79 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins.scss" as *;
+
+.chat-item {
+  display: flex;
+  justify-content: start;
+  padding: 16px 8px;
+  border-width: 90%;
+  gap: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #e4edfd;
+  }
+}
+
+.chat-item__avatar {
+  width: 47px;
+  height: 47px;
+}
+
+.chat-item__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.chat-item__wrapper {
+  @include flex-row-between;
+}
+
+.chat-item__title {
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: $font-weight-semibold;
+  margin: 0;
+}
+
+.chat-item__message {
+  font-size: 12px;
+  line-height: 15px;
+  color: $color-grey;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  max-width: 193px;
+}
+
+.chat-item__message-user {
+  color: $color-text;
+  font-weight: $font-weight-medium;
+}
+
+.chat-item__utils-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chat-item__date {
+  font-size: 10px;
+  line-height: 13px;
+  color: $color-grey;
+}
+
+.chat-item__unread-count {
+  font-size: 11px;
+  line-height: 12px;
+  text-align: center;
+  padding: 4px;
+  border-radius: 50%;
+  background: $color-blue;
+  color: white;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  align-self: flex-end;
+}
