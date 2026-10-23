@@ -1,73 +1,88 @@
 import Handlebars from "handlebars";
+import { Block } from "./components/block";
+import { registerComponent } from "./components/block";
 
-import buttonTemplate from "./components/button/button.hbs?raw";
-import inputTemplate from "./components/input/input.hbs?raw";
-import linkTemplate from "./components/link/link.hbs?raw";
-import headingTemplate from "./components/heading/heading.hbs?raw";
-import chatItemTemplate from "./components/chatItem/chatItem.hbs?raw";
-import chatWindowTemplate from "./components/chatWindow/chatWindow.hbs?raw";
-import profileEditRowTemplate from "./components/profileEditRow/profileEditRow.hbs?raw";
-import separatorTemplate from "./components/separator/separator.hbs?raw";
+import { Input } from "./components/input";
+import { Button } from "./components/button";
+import { Link } from "./components/link";
+import { Heading } from "./components/heading";
+import { ChatItem } from "./components/chatItem";
+import { ChatWindow } from "./components/chatWindow";
+import { ProfileEditRow } from "./components/profileEditRow";
+import { Separator } from "./components/separator";
+import { MessagesWindow } from "./components/messagesWindow";
 
-import loginPage from "./pages/login/login.hbs?raw";
-import registrationPage from "./pages/registration/registration.hbs?raw";
-import chatPage from "./pages/chats/chats.hbs?raw";
-import error404Page from "./pages/error404/error404.hbs?raw";
-import error500Page from "./pages/error500/error500.hbs?raw";
-import profilePage from "./pages/profile/profile.hbs?raw";
+import { LoginPage } from "./pages/login/login.ts";
+import { RegistrationPage } from "./pages/registration";
+import { ChatsPage } from "./pages/chats";
+import { Error404Page } from "./pages/error404";
+import { Error500Page } from "./pages/error500";
+import { ProfilePage } from "./pages/profile";
 
-import { chats } from "./mocks/chats.js";
-import dateConvert from "./helpers/dateConvert.js";
-import sortChatByDate from "./helpers/sortChatByDate.js";
-import eq from "./helpers/eq.js";
-import or from "./helpers/or.js";
-import routePath from "./helpers/routePath.js";
+import dateConvert from "./helpers/dateConvert.ts";
+import dateConvertToHHMM from "./helpers/dateConvertToHHMM.ts";
+import sortChatByDate from "./helpers/sortChatByDate.ts";
+import eq from "./helpers/eq.ts";
+import or from "./helpers/or.ts";
+import routePath from "./helpers/routePath.ts";
 
 import "./styles/styles.scss";
 
-Handlebars.registerPartial("button", buttonTemplate);
-Handlebars.registerPartial("input", inputTemplate);
-Handlebars.registerPartial("link", linkTemplate);
-Handlebars.registerPartial("heading", headingTemplate);
-Handlebars.registerPartial("chatItem", chatItemTemplate);
-Handlebars.registerPartial("chatWindow", chatWindowTemplate);
-Handlebars.registerPartial("profileEditRow", profileEditRowTemplate);
-Handlebars.registerPartial("separator", separatorTemplate);
-
 Handlebars.registerHelper("dateConvert", dateConvert);
+Handlebars.registerHelper("dateConvertToHHMM", dateConvertToHHMM);
 Handlebars.registerHelper("sortChatByDate", sortChatByDate);
 Handlebars.registerHelper("eq", eq);
 Handlebars.registerHelper("or", or);
 Handlebars.registerHelper("routePath", routePath);
 
+registerComponent(Input);
+registerComponent(Button);
+registerComponent(Link);
+registerComponent(Heading);
+registerComponent(ChatItem);
+registerComponent(ChatWindow);
+registerComponent(ProfileEditRow);
+registerComponent(Separator);
+registerComponent(MessagesWindow);
+
+function renderPage(page: Block) {
+  const app = document.querySelector("#app");
+
+  if (!app) {
+    throw new Error("App container not found");
+  }
+
+  app.innerHTML = "";
+  app.append(page.element()!);
+}
+
 function render() {
   const route = window.location.hash;
-  const app = document.querySelector("#app");
 
   switch (route) {
     case "":
-      app!.innerHTML = Handlebars.compile(loginPage)({});
+      renderPage(new LoginPage());
       break;
     case "#register":
-      app!.innerHTML = Handlebars.compile(registrationPage)({});
+      renderPage(new RegistrationPage());
       break;
     case "#messenger":
-      app!.innerHTML = Handlebars.compile(chatPage)({ chats });
+      renderPage(new ChatsPage());
       break;
     case "#profile":
-      app!.innerHTML = Handlebars.compile(profilePage)({});
+      renderPage(new ProfilePage());
       break;
     case "#profile/edit":
-      app!.innerHTML = Handlebars.compile(profilePage)({});
+      renderPage(new ProfilePage());
       break;
     case "#profile/password":
-      app!.innerHTML = Handlebars.compile(profilePage)({});
+      renderPage(new ProfilePage());
       break;
     case "#error500":
-      app!.innerHTML = Handlebars.compile(error500Page)({});
+      renderPage(new Error500Page());
       break;
     default: {
-      app!.innerHTML = Handlebars.compile(error404Page)({});
+      renderPage(new Error404Page());
       break;
     }
   }

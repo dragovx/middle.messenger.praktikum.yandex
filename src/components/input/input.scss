@@ -17,7 +17,7 @@
 .input__field {
   border: none;
   border-bottom: solid $color-blue 1px;
-  padding: 5px 0 6px;
+  padding: 5px 3px 6px;
   font-size: 13px;
   line-height: 13px;
 }
@@ -28,4 +28,21 @@
 
 .input:has(.input__field:not(:placeholder-shown)) .input__label {
   opacity: 1;
+}
+
+.input__error {
+  display: none;
+  min-height: 14px;
+  margin-top: 1px;
+  color: #ff4d4f;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.input__field_error {
+  border-color: #ff4d4f;
+}
+
+.error-visible {
+  display: block;
 }

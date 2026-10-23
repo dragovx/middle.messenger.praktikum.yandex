@@ -35,42 +35,40 @@
       {{/if}}
     </div>
       {{#if (routePath '#profile')}}
-        {{> heading text = "Иван" modifier = "profile" }}
+        {{{ Heading text = "Иван" modifier = "profile" }}}
       {{/if}}
     </div>
     {{#if (or (routePath '#profile') (routePath '#profile/edit'))}}
-      <form class="profile__info">
-        {{> profileEditRow readonly=(routePath "#profile") label="Почта" name="email" type="email" value="pochta@yandex.ru"  }} 
-        {{> profileEditRow readonly=(routePath "#profile") label="Логин" name="login" type="text" value="ivanivanov" }}
-        {{> profileEditRow readonly=(routePath "#profile") label="Имя" name="first_name" type="text" value="Иван" }}
-        {{> profileEditRow readonly=(routePath "#profile") label="Фамилия" name="second_name" type="text" value="Иванов"}}
-        {{> profileEditRow readonly=(routePath "#profile") label="Имя в чате" name="display_name" type="text" value="Иван"}}
-        {{> profileEditRow readonly=(routePath "#profile") label="Телефон" name="phone" type="tel" value="+7 (909) 967 30 30"}}
+      <form class="profile__info-form">
+        {{{ ProfileEditRow readonly=(routePath "#profile") label="Почта" name="email" type="email" value=email  }}} 
+        {{{ ProfileEditRow readonly=(routePath "#profile") label="Логин" name="login" type="text" value=login }}}
+        {{{ ProfileEditRow readonly=(routePath "#profile") label="Имя" name="first_name" type="text" value=first_name }}}
+        {{{ ProfileEditRow readonly=(routePath "#profile") label="Фамилия" name="second_name" type="text" value=second_name }}}
+        {{{ ProfileEditRow readonly=(routePath "#profile") label="Имя в чате" name="display_name" type="text" value=display_name }}}
+        {{{ ProfileEditRow readonly=(routePath "#profile") label="Телефон" name="phone" type="tel" value=phone }}}
         {{#if (routePath '#profile/edit')}}
         <div class="profile__info-button">
-          {{> button label = 'Сохранить' modifier = 'changeProfile' type = 'submit'}}
+          {{{ Button label = 'Сохранить' modifier = 'changeProfile' type = 'submit' }}}
         </div>
         {{/if}}
       </form>
     {{/if}}
     
     {{#if (routePath '#profile/password') }}
-    <form class="profile__change-password">
-      {{> profileEditRow label = "Старый пароль" type = "password" name = "old_password" value = "•••••••••" readonly=true}}
-      {{> profileEditRow label = "Новый пароль" type = "password" name = "new_password" value = "•••••••••" readonly=true}}
-      {{> profileEditRow label = "Повторите новый пароль" type = "password" name = "repeat_password" value = "•••••••••" readonly=true}}
+    <form class="profile__change-password-from">
+      {{{ ProfileEditRow label = "Старый пароль" type = "password" name = "old_password" value = "•••••••••"}}}
+      {{{ ProfileEditRow label = "Новый пароль" type = "password" name = "new_password" value = "•••••••••" }}}
+      {{{ ProfileEditRow label = "Повторите новый пароль" type = "password" name = "repeat_password" value = "•••••••••"}}}
       <div class="profile__info-button">
-        {{> button label = 'Сохранить' modifier = 'changePassword' type = 'submit'}}
+        {{{ Button label = 'Сохранить' modifier = 'changePassword' type = 'submit' }}}
       </div>
     </form>
     {{/if}}
     {{#if (routePath '#profile') }}
       <nav class="profile__actions">
-        {{> link modifier="action" href="#profile/edit" text="Изменить данные"}}
-        {{> separator}}
-        {{> link modifier="action" href="#profile/password" text="Изменить пароль"}}
-        {{> separator}}
-        {{> link modifier="logout" href="#" text="Выйти"}}
+        {{{ Link modifier="action" href="#profile/edit" text="Изменить данные" }}}
+        {{{ Link modifier="action" href="#profile/password" text="Изменить пароль" }}}
+        {{{ Link modifier="logout" href="#" text="Выйти" }}}
       </nav>
     {{/if}}
   </section>

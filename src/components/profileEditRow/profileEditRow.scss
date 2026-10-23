@@ -5,7 +5,13 @@
   width: 510px;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+.profile-field__input-wrapper {
   @include flex-row-between;
+
+  padding-bottom: 10px;
+  border-bottom: 1px solid $color-line;
 }
 
 .profile-field__label {
@@ -13,6 +19,7 @@
   font-weight: $font-weight-semibold;
   color: $color-text;
 }
+
 .profile-field__input {
   border: none;
   text-align: right;
@@ -22,4 +29,23 @@
   &:focus {
     outline: 0;
   }
+}
+
+.profile-field__error {
+  display: none;
+  min-height: 14px;
+  margin-top: 4px;
+  color: #ff4d4f;
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  text-align: right;
+}
+
+.profile__field_error {
+  border-color: #ff4d4f;
+}
+
+.error-visible {
+  display: block;
 }

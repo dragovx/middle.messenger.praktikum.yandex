@@ -10,6 +10,7 @@ $profile-wifth: 510px;
 
 .profile__side {
   @include flex-column-center;
+
   height: 100%;
   width: 64px;
   background-color: $color-background;
@@ -68,16 +69,19 @@ $profile-wifth: 510px;
 }
 
 .profile__avatar-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgb(0 0 0 / 50%);
   position: absolute;
   inset: 0;
+
   @include flex-column-center;
+
   font-size: 14px;
   color: white;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease; // не обязательно, но приятно
 }
+
 .profile__actions {
   padding-top: 80px;
   justify-content: left;
@@ -90,5 +94,6 @@ $profile-wifth: 510px;
 
 .profile__info-button {
   @include flex-column-center;
+
   // width: 280px;
 }

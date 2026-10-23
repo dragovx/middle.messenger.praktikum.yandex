@@ -3,10 +3,8 @@
 @use "./mixins";
 @use "./auth";
 @use "./error";
-
-@use "../pages/chats/chats.scss";
-@use "../pages/profile/profile.scss";
-
+@use "../pages/chats/chats";
+@use "../pages/profile/profile";
 @use "../components/separator/separator";
 @use "../components/button/button";
 @use "../components/input/input";
@@ -14,4 +12,5 @@
 @use "../components/heading/heading";
 @use "../components/chatItem/chatItem";
 @use "../components/profileEditRow/profileEditRow";
-@use "../components/chatWindow/chatWindow.scss";
+@use "../components/chatWindow/chatWindow";
+@use "../components/messagesWindow/messagesWindow";
