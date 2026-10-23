@@ -13,59 +13,64 @@
   min-height: 0;
   overflow-y: auto;
 }
-  
+
 .messagesWindow__message-row {
   display: flex;
-  
-  &--own { justify-content: flex-end; }
-  &--not-own { justify-content: flex-start; }
+
+  &--own {
+    justify-content: flex-end;
+  }
+
+  &--not-own {
+    justify-content: flex-start;
+  }
 }
 
 .messagesWindow__message-wrapper {
   box-sizing: border-box;
-  padding: 8px 11px 11px; 
+  padding: 8px 11px 11px;
   max-width: 90%;
-  overflow: hidden; 
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
 
   .messagesWindow__message-row--own & {
     border-radius: 10px 10px 0;
-    background-color: #E4EDFD;
+    background-color: #e4edfd;
   }
 
   .messagesWindow__message-row--not-own & {
     border-radius: 0 10px 10px;
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
   }
 }
 
 .messagesWindow__message-meta-info {
   display: flex;
-  justify-content: flex-end; 
-  align-items: center; 
+  justify-content: flex-end;
+  align-items: center;
   gap: 5px;
-  margin-top: 4px; 
+  margin-top: 4px;
   margin-left: 10px;
-  align-self: flex-end; 
+  align-self: flex-end;
 }
 
 .messagesWindow__message-text {
   margin: 0;
   line-height: 20px;
-  overflow-wrap: break-word; 
-  white-space: pre-wrap; 
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .messagesWindow__message-time {
   font-size: 11px;
   font-weight: 500;
-  line-height: 9px; 
-  white-space: nowrap; 
+  line-height: 9px;
+  white-space: nowrap;
 
   .messagesWindow__message-row--own & {
-    color: $color-blue; 
+    color: $color-blue;
   }
 
   .messagesWindow__message-row--not-own & {
@@ -75,5 +80,5 @@
 
 .messagesWindow__message-mark {
   width: 14px;
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
