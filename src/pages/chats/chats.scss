@@ -16,6 +16,7 @@
 .chats__content {
   height: 100vh;
   flex: 1;
+
   @include flex-row-center;
 }
 
@@ -90,5 +91,5 @@
 .chats__empty {
   font-size: 12px;
   line-height: 12px;
-  color: #999999;
+  color: #999;
 }

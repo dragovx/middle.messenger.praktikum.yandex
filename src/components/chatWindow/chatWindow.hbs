@@ -8,15 +8,16 @@
       <img src="/img/threedot.svg" alt="menu" class="chat-window__threedot"/>
     </div>
   </header>
-  {{> separator modifier="indent2"}}
+  {{{ Separator modifier="indent2" }}}
   <div class="chat-window__chat">
-    {{!-- Тело переписки --}}
+    <span class="chat-window__window-time">19 Июня</span>
+    {{ MessagesWindow }}
   </div>
-  {{> separator modifier="indent2"}}
+  {{{ Separator modifier="indent2" }}}
   <footer class="chat-window__footer">
     <img src="/img/attach.svg" alt="attach" class="chat-window__attach"/>
     <form id="submitMessage" class="chat-window__message">
-      <input type="text" name="message" class="chat-window__send-message" placeholder="Сообщение">
+      <input type="text" name="message" class="chat-window__send-message" placeholder="Сообщение" autocomplete="off">
     </form>
     <button type="submit" form="submitMessage" class="chat-window__send-button">
       <img src="/img/back.svg" alt="submit" class="chat-window__send"/>

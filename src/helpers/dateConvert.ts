@@ -1,4 +1,4 @@
-export default (d) => {
+export default (d: string): string | undefined => {
   const dateNow = new Date("2026-09-25T21:34:00.000Z");
   const dateMessage = new Date(d);
 

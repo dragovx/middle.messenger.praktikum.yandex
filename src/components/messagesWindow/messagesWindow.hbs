@@ -1,0 +1,16 @@
+<ul class="messagesWindow">
+  {{#each chat}}
+  <li class="messagesWindow__message-row messagesWindow__message-row--{{#if isOwn}}own{{else}}not-own{{/if}}">
+    <div class="messagesWindow__message-wrapper">
+      <p class="messagesWindow__message-text">{{text}}</p>
+      
+      <div class="messagesWindow__message-meta-info">
+        <span class="messagesWindow__message-time">{{dateConvertToHHMM timestamp}}</span>
+        {{#if isOwn}} 
+          <img class="messagesWindow__message-mark" src="/img/checkMark.svg" alt="Прочитано">
+        {{/if}}
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</ul>
